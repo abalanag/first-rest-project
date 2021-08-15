@@ -1,8 +1,6 @@
 package ro.siit.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -16,7 +14,6 @@ public class PackDto {
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime deliveryData;
-
 
     public PackDto(){
     };

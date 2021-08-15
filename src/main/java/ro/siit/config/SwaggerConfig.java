@@ -18,20 +18,20 @@ public class SwaggerConfig implements WebMvcConfigurer {
     public Docket scrumAllyApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .paths(path -> List.of("package-management/packages/{packId}",
-                        "package-management/packages/title/{packTitle}",
-                        "package-management/packages",
-                        "package-management/packages/{date}/prices/calculate",
-                        "package-management/packages",
-                        "package-management/packages/{packId}").contains(path))
-                .build()
+                .paths(path -> List.of(
+                        "/packages/{packId}",
+                        "/packages/title/{packTitle}",
+                        "/packages",
+                        "/packages/{date}/prices/calculate",
+                        "/packages",
+                        "/packages/{packId}").contains(path)).build()
                 .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Packages API")
-                .description("It's an Rest application that it's managing packages")
+                .title("My first rest project")
+                .description("This is an rest application that manage the packages")
                 .license("MIT License")
                 .licenseUrl("https://opensource.org/licenses/MIT")
                 .build();
@@ -39,7 +39,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/swagger-ui/**")
+        registry.
+                addResourceHandler("/swagger-ui/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/")
                 .resourceChain(false);
     }

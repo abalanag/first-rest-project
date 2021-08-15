@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PackService {
-    List<PackDto> findAll();
     PackDto findById(Long id);
     PackDto findByTitle(String title);
     Boolean deletePack(Long id);
